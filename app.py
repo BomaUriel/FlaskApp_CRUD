@@ -51,24 +51,22 @@ def index():
 
 
 
-# Runner and Debugger
-if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
-    app.run(debug=True)
-
-
-
-
-
 
 # Delete an Item
 @app.route("/delete/<int:id>")
 def delete(id:int):
     delete_task = MyTask.query.get_or_404(id)
     try:
-        db.session(delete_task)
+        db.session.delete(delete_task)
         db.session.commit()
         return redirect("/")
     except Exception as e:
         return f"ERROR:{e}"
+
+
+
+# Runner and Debugger
+if __name__ == "__main__":
+    with app.app_context():
+        db.create_all()
+    app.run(debug=True)
