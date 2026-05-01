@@ -51,7 +51,6 @@ def index():
 
 
 
-
 # Delete an Item
 @app.route("/delete/<int:id>")
 def delete(id:int):
@@ -66,7 +65,18 @@ def delete(id:int):
 
 
 # Edit an item
-@app.route 
+@app.route("/edit/<int:id>", methods=["GET","POST"])
+def edit(id:int):
+    task = MyTask.query.get_or_404(id)
+    if request.method == "POST":
+        task.content = request.form['content']
+        try:
+            db.session.commit()
+            return redirect("/")
+        except Exception as e:
+            return f"Error:{e}"
+    else:
+        return render_template('edit.html', task=task)
 
 
 
