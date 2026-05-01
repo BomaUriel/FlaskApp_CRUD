@@ -65,6 +65,11 @@ def delete(id:int):
 
 
 
+# Edit an item
+@app.route 
+
+
+
 # Runner and Debugger
 if __name__ == "__main__":
     with app.app_context():
