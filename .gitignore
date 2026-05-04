@@ -1,8 +1,36 @@
+# Virtual environments
 .venv/
+venv/
 env/
+ENV/
+
+# Python cache and build files
 __pycache__/
-*.pyc
-instance/
-.DS_Store
-*.db
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Flask and local environment files
 .env
+.env.*
+!.env.example
+instance/
+*.db
+*.sqlite
+*.sqlite3
+
+# Test, coverage, and tooling caches
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
