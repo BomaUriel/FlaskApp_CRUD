@@ -4,103 +4,134 @@ A simple Flask-based task management application with Create, Read, Update, and 
 
 ## Features
 
-- ✅ Add new tasks
-- ✅ View all tasks with creation date
-- ✅ Edit existing tasks
-- ✅ Delete tasks
-- ✅ Persistent database storage with SQLite
-- ✅ Responsive design with custom styling
+- Add new tasks
+- View all tasks with creation date
+- Edit existing tasks
+- Delete tasks
+- Persistent database storage with SQLite
+- Responsive design with custom styling
 
 ## Tech Stack
 
 - **Backend:** Flask 3.1.3
 - **Database:** SQLite with SQLAlchemy ORM
 - **Frontend:** Jinja2 templates with HTML/CSS
-- **Styling:** SCSS (compiled to CSS)
+- **Styling:** SCSS compiled to CSS
 
 ## Prerequisites
 
 - Python 3.8 or higher
-- pip (Python package manager)
+- pip, the Python package manager
 
 ## Setup Instructions
 
 ### 1. Clone the Repository
+
 ```bash
 git clone <repository-url>
 cd FlaskApp_CRUD
+```
 
-2. Create a Virtual Environment
-python -m venv .venv
+### 2. Create a Virtual Environment
 
-3. Activate Virtual Environment
-On Windows (Git Bash/MINGW64):
-source .venv/Scripts/activate
+```bash
+python -m venv .venv
+```
+
+### 3. Activate the Virtual Environment
+
+On Windows with Git Bash/MINGW64:
+
+```bash
+source .venv/Scripts/activate
+```
+
+On Windows with PowerShell:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
 
 On macOS/Linux:
-source .venv/bin/activate
 
+```bash
+source .venv/bin/activate
+```
 
-4. Install Dependencies
-pip install -r requirements.txt
-Running the Application
+### 4. Install Dependencies
 
-python app.py
-The application will start on http://127.0.0.1:5000/
+```bash
+pip install -r requirements.txt
+```
 
-Open your browser and navigate to the URL
-Debug mode is enabled (auto-reloads on code changes)
-Press CTRL+C to stop the server
+### 5. Run the Application
 
+```bash
+python app.py
+```
 
-Project Structure
+The application will start at:
 
+```text
+http://127.0.0.1:5000/
+```
+
+Open that URL in your browser. Debug mode is enabled, so the server reloads automatically when code changes. Press `CTRL+C` in the terminal to stop the server.
+
+## Project Structure
+
+```text
 FlaskApp_CRUD/
-├── app.py                 # Main Flask application
-├── requirements.txt       # Python dependencies
-├── README.md             # This file
-├── database.db           # SQLite database (auto-created)
-├── instance/             # Instance folder for app data
-├── static/               # Static files
-│   ├── styles.css       # Compiled CSS
-│   └── styles.scss      # SCSS source
-├── templates/            # HTML templates
-│   ├── base.html        # Base template
-│   ├── index.html       # Task list page
-│   └── edit.html        # Edit task page
-└── env/                 # Virtual environment (not committed to git)
+|-- app.py                 # Main Flask application
+|-- requirements.txt       # Python dependencies
+|-- README.md              # Project documentation
+|-- .venv/                 # Virtual environment, not committed to git
+|-- instance/
+|   `-- database.db        # SQLite database, auto-created
+|-- static/
+|   |-- styles.css         # Compiled CSS
+|   `-- styles.scss        # SCSS source
+`-- templates/
+    |-- base.html          # Base template
+    |-- index.html         # Task list page
+    `-- edit.html          # Edit task page
+```
 
+## Database
 
-Database
-Type: SQLite
-Location: database.db
-Auto-created: Yes (on first run)
-Table: MyTask with columns:
-id (Integer, Primary Key)
-content (String, max 100 chars)
-complete (Integer, default 0)
-created (DateTime)
+- **Type:** SQLite
+- **Location:** `instance/database.db`
+- **Auto-created:** Yes, on first run
+- **Table:** `MyTask`
 
+`MyTask` columns:
 
-Dependencies
-See requirements.txt for complete list. Main packages:
+- `id` - Integer, primary key
+- `content` - String, max 100 characters
+- `complete` - Integer, default 0
+- `created` - DateTime
 
-Flask
-Flask-SQLAlchemy
-Jinja2
+## Dependencies
 
+See `requirements.txt` for the complete list. Main packages include:
 
-Future Enhancements
- User authentication
- Task categories/tags
- Due dates and reminders
- Task priority levels
- Search functionality
- Deployment to production
+- Flask
+- Flask-SQLAlchemy
+- Jinja2
 
- 
-License
+## Future Enhancements
+
+- User authentication
+- Task categories or tags
+- Due dates and reminders
+- Task priority levels
+- Search functionality
+- Production deployment
+
+## License
+
 This project is open source and available under the MIT License.
 
-Author
+## Author
+
 Created by BOMAU
