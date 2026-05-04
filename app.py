@@ -8,6 +8,7 @@ from datetime import datetime
 # Main app
 app = Flask(__name__)
 
+app.config["DEBUG"] = True
 app.config['SCSS_ASSET_DIR'] = 'static'
 Scss(app)
 
