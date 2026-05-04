@@ -28,7 +28,7 @@ A simple Flask-based task management application with Create, Read, Update, and 
 ### 1. Clone the Repository
 
 ```bash
-git clone [repository-url](https://github.com/BomaUriel/FlaskApp_CRUD.git)
+git clone https://github.com/BomaUriel/FlaskApp_CRUD.git
 cd FlaskApp_CRUD
 ```
 

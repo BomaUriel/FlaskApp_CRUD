@@ -33,7 +33,6 @@ with app.app_context():
     db.create_all()
 
 
-
 # Routes to Webpages
 @app.route("/", methods=["POST","GET"])
 def index():
@@ -54,7 +53,6 @@ def index():
         tasks = MyTask.query.order_by(MyTask.created).all()
         return render_template('index.html', tasks=tasks)
     
-
 
 
 # Delete an Item
