@@ -8,12 +8,14 @@ from datetime import datetime
 # Main app
 app = Flask(__name__)
 
+app.config["DEBUG"] = True
 app.config['SCSS_ASSET_DIR'] = 'static'
 Scss(app)
 
 
 # Database Config
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
+app.config["SQLALCHEMY_TRACK_MODIFICATION"] = False
 db = SQLAlchemy(app)
 
 # Data Class ~ Row of data
@@ -26,6 +28,9 @@ class MyTask(db.Model):
     def __repr__(self):
         return f"Task {self.id}"
 
+
+with app.app_context():
+    db.create_all()
 
 
 # Routes to Webpages
@@ -48,7 +53,6 @@ def index():
         tasks = MyTask.query.order_by(MyTask.created).all()
         return render_template('index.html', tasks=tasks)
     
-
 
 
 # Delete an Item
@@ -82,6 +86,4 @@ def edit(id:int):
 
 # Runner and Debugger
 if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
     app.run(debug=True)
